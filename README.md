@@ -27,3 +27,20 @@ A real-time stock tracking application that allows users to enter stock symbols,
 - Socket.io for real-time WebSocket communication
 - MongoDB with Mongoose library
 - Polygon API for stock data
+
+  ## Supported Stock Symbols
+
+- **AAPL** (Apple Inc.)
+- **IBM** (International Business Machines Corporation)
+- **GOOGL** (Alphabet Inc.)
+- **MSFT** (Microsoft Corporation)
+- **AMZN** (Amazon.com Inc.)
+- **TSLA** (Tesla, Inc.)
+- **NFLX** (Netflix, Inc.)
+- **FB** (Meta Platforms, Inc.)
+- **NVDA** (NVIDIA Corporation)
+- **BABA** (Alibaba Group Holding Ltd)
+- **DIS** (The Walt Disney Company)
+- **AMD** (Advanced Micro Devices, Inc.)
+- **ORCL** (Oracle Corporation)
+- **INTC** (Intel Corporation)

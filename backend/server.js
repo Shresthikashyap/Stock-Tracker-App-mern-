@@ -5,7 +5,7 @@ const stockController = require('./controllers/stockController');
 const cors = require('cors');
 const http = require('http');
 const socketIo = require('socket.io');
-const path = require('path'); // Import path module
+const path = require('path');
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: process.env.NODE_ENV === 'production' ? process.env.PRODUCTION_URL : 'http://localhost:3000',
+        origin: process.env.NODE_ENV === 'production' ? process.env.PRODUCTION_URL : 'http://localhost:3000', // Update this based on your environment
         methods: ["GET", "POST"],
         allowedHeaders: ["Content-Type"],
         credentials: true
@@ -51,5 +51,6 @@ io.on('connection', (socket) => {
     });
 });
 
+// Define the PORT for your server
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

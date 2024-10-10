@@ -2,7 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 import io from 'socket.io-client';
 import StockChart from '../components/StockChart';
 
-const socket = io('http://localhost:5000'); // Connect to WebSocket server
+// Connect to WebSocket server
+const socket = io(process.env.NODE_ENV === 'production' 
+  ? 'https://stock-tracker-app-mern.onrender.com' 
+  : 'http://localhost:5000'
+);
 
 const StockTracker = () => {
   const [symbol, setSymbol] = useState('');

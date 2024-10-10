@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js", 
+    "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend", 
-    "dev": "concurrently \"npm run server\" \"npm run client\"", 
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",

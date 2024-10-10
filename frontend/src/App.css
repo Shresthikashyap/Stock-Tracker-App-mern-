@@ -1,0 +1,90 @@
+/* Global Styles */
+body {
+  background-color: #1e1e2f; /* Slightly lighter dark background */
+  color: #e0e0e0; /* Soft gray text */
+  font-family: 'Roboto', sans-serif; /* Sleek, modern font */
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #9bd3f4; /* Softer tech blue */
+  margin-top: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Input and Button Styling */
+input[type="text"] {
+  width: 60%;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: 1px solid #3c3c50;
+  border-radius: 8px;
+  margin: 20px auto;
+  display: block;
+  background-color: #292b3e; /* Softer dark input background */
+  color: #e0e0e0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]::placeholder {
+  color: #a1a1b5;
+}
+
+button {
+  background-color: #719ecf; /* Softer blue */
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5d88b2;
+}
+
+/* Error Message */
+div {
+  font-size: 1.1rem;
+  color: #ff6b6b; /* Softer error red */
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Chart Container */
+canvas {
+  max-width: 100%; /* Increase width of the graph container */
+  height: 450px; /* Make the graph taller */
+  margin: 30px auto;
+  display: block;
+  border: 1px solid #9bd3f4; /* Softer tech blue */
+  border-radius: 12px;
+  background-color: #2b2d42; /* Softer dark background */
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  input[type="text"] {
+    width: 80%;
+  }
+
+  button {
+    width: 80%;
+  }
+
+  canvas {
+    height: 300px; /* Adjust graph height on mobile */
+  }
+}
+
+

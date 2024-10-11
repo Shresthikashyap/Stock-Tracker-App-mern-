@@ -8,7 +8,6 @@ const API_KEY = process.env.POLYGON_API_KEY; // Replace with your Polygon API ke
 exports.getStockData = async (symbol, io) => { // Accept symbol and io
   console.log('symbol:', symbol); // Log the symbol for debugging
 
-  console.log('baby ',process.env.POLYGON_API_KEY)
 
   const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
   const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]; // 30 days ago
@@ -17,12 +16,12 @@ exports.getStockData = async (symbol, io) => { // Accept symbol and io
     const response = await axios.get(`https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/${thirtyDaysAgo}/${today}?apiKey=${API_KEY}`);
     console.log('response ',response.data.results);
     
-    if (response.data.status === 'ERROR' || response.data.results === undefined) {
+    if (response.data.status === 'ERROR') {
       return io.emit('stockUpdate', { error: 'Invalid stock symbol or API limit reached' }); // Emit error message
     }
 
     const stockData = response.data.results.map(item => ({
-      time: new Date(item.t).toISOString(), // Adjust time format as needed
+      time: new Date(item.t).toISOString(), // Adjusting time format as needed
       open: item.o,
       high: item.h,
       low: item.l,
@@ -37,16 +36,12 @@ exports.getStockData = async (symbol, io) => { // Accept symbol and io
     io.emit('stockUpdate', { data: stockData, predictions }); // Emit updated stock data
   } catch (error) {
     console.error('Error fetching stock data:', error.message);
-    io.emit('stockUpdate', { error: 'Error fetching stock data' }); // Emit error message
+    io.emit('stockUpdate', {  error: 'Unable to retrieve stock data. Please try again later or check the stock symbol entered.'}); // Emit error message
   }
 };
 
 
 //alpha vintage api
-
-// const Stock = require('../models/Stock.js');
-// const axios = require('axios');
-// const { calculateBuySellSignals } = require('../utils/predictionAlgorithm');  // Prediction logic
 
 // const API_KEY = '9XP7U54EHJW3ZEGJ';
 

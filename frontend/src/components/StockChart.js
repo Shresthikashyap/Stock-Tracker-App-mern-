@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import moment from 'moment'; // Import moment.js for date formatting
 
 const StockChart = ({ stockData, predictions }) => {
   // Default empty dataset
@@ -9,33 +10,23 @@ const StockChart = ({ stockData, predictions }) => {
     datasets: [
       {
         label: 'Close Price',
-        data: [0], // Default zero value for the graph
         borderColor: 'blue',
-        fill: false,
       },
       {
         label: 'Buy Signals',
-        data: [null],
         borderColor: 'green',
-        fill: false,
-        pointStyle: 'circle',
-        pointRadius: [0],
       },
       {
         label: 'Sell Signals',
-        data: [null],
         borderColor: 'red',
-        fill: false,
-        pointStyle: 'circle',
-        pointRadius: [0],
       },
     ],
   };
 
-  // Use stockData only if it's available, otherwise use defaultData
+  // Using stockData only if it's available, otherwise defaultData will be used
   const chartData = stockData.length > 0
     ? {
-      labels: stockData.map(item => item.time), // Ensure there are multiple time points
+      labels: stockData.map(item => moment(item.time).format('MMM DD')), // Format time to 'MMM DD'
       datasets: [
         {
           label: 'Close Price',
@@ -61,37 +52,53 @@ const StockChart = ({ stockData, predictions }) => {
         },
       ],
     }
-    : defaultData; // Use default data if no stock data is available
+    : defaultData; 
 
-    const options = {
-      plugins: {
-        legend: {
-          labels: {
-            color: '#ffffff', // White for the labels
-            font: {
-              size: 14,
-              family: "'Roboto', sans-serif",
-            },
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          color: '#ffffff', 
+          font: {
+            size: 14,
+            family: "'Roboto', sans-serif",
           },
         },
       },
-      scales: {
-        x: {
-          ticks: {
-            color: '#ffffff', // White for x-axis labels
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Time Duration (30 days)', 
+          color: '#ffffff', 
+          font: {
+            size: 16,
+            family: "'Roboto', sans-serif",
           },
         },
-        y: {
-          ticks: {
-            color: '#ffffff', // White for y-axis labels
-          },
+        ticks: {
+          color: '#ffffff', 
         },
       },
-    };
-  
-    return <Line data={chartData} options={options} width={600} height={210} />;
+      y: {
+        title: {
+          display: true,
+          text: 'Stock Price (USD)', 
+          color: '#ffffff', 
+          font: {
+            size: 16,
+            family: "'Roboto', sans-serif",
+          },
+        },
+        ticks: {
+          color: '#ffffff', 
+        },
+      },
+    },
+  };
+
+  return <Line data={chartData} options={options} width={600} height={210} />;
 };
 
 export default StockChart;
-
-

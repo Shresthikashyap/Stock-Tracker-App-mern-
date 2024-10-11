@@ -1,8 +1,8 @@
 /* Global Styles */
 body {
-  background-color: #1e1e2f; /* Slightly lighter dark background */
-  color: #e0e0e0; /* Soft gray text */
-  font-family: 'Roboto', sans-serif; /* Sleek, modern font */
+  background-color: #1e1e2f; 
+  color: #e0e0e0; 
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +10,7 @@ body {
 h1 {
   text-align: center;
   font-size: 2.5rem;
-  color: #9bd3f4; /* Softer tech blue */
+  color: #9bd3f4; 
   margin-top: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -25,7 +25,7 @@ input[type="text"] {
   border-radius: 8px;
   margin: 20px auto;
   display: block;
-  background-color: #292b3e; /* Softer dark input background */
+  background-color: #292b3e; 
   color: #e0e0e0;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
@@ -35,7 +35,7 @@ input[type="text"]::placeholder {
 }
 
 button {
-  background-color: #719ecf; /* Softer blue */
+  background-color: #719ecf; 
   color: #fff;
   padding: 12px 25px;
   font-size: 1.2rem;
@@ -54,7 +54,7 @@ button:hover {
 /* Error Message */
 div {
   font-size: 1.1rem;
-  color: #ff6b6b; /* Softer error red */
+  color: #ff6b6b; 
   text-align: center;
   margin-top: 10px;
 }
@@ -65,26 +65,12 @@ canvas {
   height: 450px; /* Make the graph taller */
   margin: 30px auto;
   display: block;
-  border: 1px solid #9bd3f4; /* Softer tech blue */
+  border: 1px solid #9bd3f4; 
   border-radius: 12px;
-  background-color: #2b2d42; /* Softer dark background */
+  background-color: #2b2d42; 
   padding: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  input[type="text"] {
-    width: 80%;
-  }
-
-  button {
-    width: 80%;
-  }
-
-  canvas {
-    height: 300px; /* Adjust graph height on mobile */
-  }
-}
 
 
